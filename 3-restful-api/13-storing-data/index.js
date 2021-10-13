@@ -5,6 +5,17 @@ const url = require("url");
 const StringDecoder = require("string_decoder").StringDecoder;
 const fs = require("fs");
 const config = require("./config");
+const _data = require("./lib/data");
+
+// TESTING
+// TODO: DELETE THIS
+_data.create("test", "newFile", { foo: "bar" }, (err) =>
+  console.log("THIS WAS AN ERROR ", err)
+);
+_data.read("test", "newFile", (err, data) => {
+  console.log("ERROR: ", err);
+  console.log("DATA: ", data);
+});
 
 // Instantiating HTTP server
 const httpServer = http.createServer((req, res) => {
